@@ -1147,17 +1147,6 @@ class TriangleAPI extends \SoapClient {
         
       return $res;   
     }
-    
-    private function FormatParams($key, $params) {
-        $result = NULL;
-        $result = array_intersect($params, $this->configOptions[$key]);
-        foreach ($this->configOptions[$key] as $k => $v) {
-            if (array_key_exists($v, $params)) {
-                $result[$k] = $params[$v];
-            }
-        }
-        return $result;
-    }
 
     private function ParseResponse($obj, $justBool = false) {
         $state = 'Error';
