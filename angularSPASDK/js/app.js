@@ -374,7 +374,6 @@ module.controller( 'CcCtrl' , function($scope,$locale,$window,ServiceHandler,$lo
       $scope.typeChange = function(){
             var type = $scope.ccinfo.paymentType;
             if(type==1){
-                alert($('#cc_number').value);
                 $('#cc_number').attr('data-ng-pattern','[0-9]{4} *[0-9]{6} *[0-9]{5}');
                 $('#cc_number').attr('maxlength','15');
                 $('#cc_cvv').attr('maxlength','4');
