@@ -1,5 +1,5 @@
 
-The purpose of this SDK is to allow our customers who have servers running PHP to use an already tested angular.js front-end implementation
+The purpose of this template is to allow our customers who have servers running PHP to use an already tested angular.js front-end implementation
 
 ##Getting started
 
@@ -56,7 +56,7 @@ exp = true
 
 ##Bootstrap explained
 
-This SDK uses a bootstrap object coming from the server, with information like:
+This template uses a bootstrap object coming from the server, with information like:
 
 - planID
 - trialPackageID
@@ -94,3 +94,64 @@ Because modular is always better, we have all the html files separated into temp
 - Credit Card Form (Information related to the CC: CC Number, CVV...)
 
 
+##Templates example
+
+templates/contents/index.php
+
+```
+<?php
+
+include '../../TriangleCRM/Controller.php';
+
+$controller = new Controller("boostrap");
+
+$settings = $controller->GetModel("indexBootstrap");  
+$required = $controller->GetModel('billingFormRequired');
+
+?>
+<script>
+    var indexSettings = <?php echo $settings; ?>;
+    var downsell = indexSettings.Result.downSell.split('.')[0];// SPA redirect without .php or .html
+    var indexShowEl = <?php echo $required; ?>;
+</script>
+
+<div class="" ng-include="templates.templateBill">
+
+</div>
+```
+
+reviewing line by line the last example
+
+- Include our controller
+```
+include '../../TriangleCRM/Controller.php';
+```
+
+- Create a new instance of the controller saying that we are going to use that instance for boostraping 
+```
+$controller = new Controller("boostrap");
+```
+
+- Get the index Bootstrap model(needed information to submit) and get the Billing Form Required elements
+```
+$settings = $controller->GetModel("indexBootstrap");  
+$required = $controller->GetModel('billingFormRequired');
+```
+
+- Setting JS variables with the content coming from the server also, create a downsell variable with the downsell page name
+```
+<script>
+    var indexSettings = <?php echo $settings; ?>;
+    var downsell = indexSettings.Result.downSell.split('.')[0];// SPA redirect without .php or .html
+    var indexShowEl = <?php echo $required; ?>;
+</script>
+```
+
+- Add custom html without removing or editing the billing form include
+```
+...add your custom html code
+<div class="" ng-include="templates.templateBill">
+    NOT EDIT
+</div>
+add your custom html code...
+```
