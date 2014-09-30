@@ -1,6 +1,5 @@
-##Abstract
 
-The purpose of this SDK is to allow our customers who have servers running PHP to use an already tested angular.js implementation
+The purpose of this SDK is to allow our customers who have servers running PHP to use an already tested angular.js front-end implementation
 
 ##Getting started
 
