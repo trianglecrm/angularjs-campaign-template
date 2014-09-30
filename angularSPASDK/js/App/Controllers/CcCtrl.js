@@ -107,7 +107,6 @@ module.controller( 'CcCtrl' , function($scope,$locale,$window,ServiceHandler,$lo
                     
                 }
                 else{
-                    console.log(creditCard)
                     if(type==1){
                         if(creditCard.toString().length != 15)
                             AlertHandler.alert('The credit card number for AMEX should have 15 digits');
@@ -127,10 +126,8 @@ module.controller( 'CcCtrl' , function($scope,$locale,$window,ServiceHandler,$lo
             }
             else{
                 if(cvv == undefined){
-                    console.log('no esta');
                 }
                 else{
-                    console.log(cvv);
                     if(type==1){
                         if(cvv.toString().length != 4)
                             AlertHandler.alert('The CVV number for AMEX should have 4 digits');

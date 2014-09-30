@@ -1,6 +1,5 @@
 
-<form method="post" name='opt_in_form' id='opt_in_form' ng-submit="opt_in_form.$valid && save(ccinfo)">
-<div class="cc-form form-inner-container">
+<form method="post" name='opt_in_form' class='templateForm' id='opt_in_form' ng-submit="opt_in_form.$valid && save(ccinfo)">
     <div class='form-element form-input-full' >
         <label>We Accept </label> 
         <img title="Visa" src="img/cc-icon-visa.png" alt="Visa">
@@ -57,7 +56,7 @@
             placeholder="CCV"
             required
             data-ng-pattern="/^[0-9]+$/"
-            data-ng-minlength="3"
+            minLength="3"
             maxlength="4"
             class="ccv"
             title="Please insert a valid CVV number 4 digits if AMEX or 3 if others"
@@ -67,7 +66,6 @@
         <a href="javascript:;" class="cvv-help" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">Whats This?</a>
         <div class="whatiscvv" style="" ></div>
     </div>
-    <button id="button-submit" type="submit" class='form-button'></button>
+    <input ng-click="" tabindex="9" class="form-button" type='submit' id="button-submit" value="submit" readonly/>
     <div class="button-processing" id="button-processing" style="display:none;"><img src="img/loading.gif" /><br />Processing...</div>
-</div>
 </form>

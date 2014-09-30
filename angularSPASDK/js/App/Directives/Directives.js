@@ -4,7 +4,7 @@
  * Only needs the dropdowns with the names: ccinfo.expMonth and ccinfo.expYear
  */
 
-module.directive( 'cardExpiration' , function(){
+module.directive( 'cardExpiration' , function(AlertHandler){
       var directive =
         { require: 'ngModel'
         , link: function(scope, elm, attrs, ctrl,$event){
@@ -15,7 +15,7 @@ module.directive( 'cardExpiration' , function(){
                     selected.setMonth(scope.ccinfo.expMonth);
                     selected.setYear(scope.ccinfo.expYear)
                     if(today >= selected){
-                        alert('Please select a valid date!');
+                        AlertHandler.alert('Please select a valid date!');
                         scope.ccinfo.expYear = '';
                         scope.ccinfo.expMonth = '';
                         return false;
@@ -46,28 +46,6 @@ module.directive('staticInclude', ['$http','$templateCache','$compile','$timeout
     };
 }]);
 
-//module.directive('confirmOnExit', function() {
-//    return {
-//        link: function($scope, elem, attrs) {
-//
-//            $scope.$on('$locationChangeStart', function(event, next, current) {
-//                alert('me');
-//                if ($scope.myForm.$dirty) {
-//                    if(!confirm("Ahh the form is dirty, do u want to continue?")) {
-//                        event.preventDefault();
-//                    }
-//                }
-//            });
-//
-//            window.onbeforeunload = function(){
-//                alert('me');
-//                if ($scope.myForm.$dirty) {
-//                    return "The Form is Dirty.";
-//                }
-//            }
-//        }
-//    };
-//});
 
 /* 
  * This Directive prevents the number insertion  

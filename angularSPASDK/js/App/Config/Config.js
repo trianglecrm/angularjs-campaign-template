@@ -23,7 +23,7 @@ module.config(function($routeProvider) {
                     controller  : 'InfoCtrl'
             })
 
-            // 
+            // route for the about page
             .when('/order', {
                     templateUrl : '/templates/contents/order.php',
                     controller  : 'CcCtrl'

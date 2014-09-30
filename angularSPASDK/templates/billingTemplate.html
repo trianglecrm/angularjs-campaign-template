@@ -1,5 +1,5 @@
 
-<form Method="post" name='opt_in_form' id='opt_in_form' ng-submit="opt_in_form.$valid && save(billinfo)">
+<form Method="post" name='opt_in_form' class='templateForm' id='opt_in_form' ng-submit="opt_in_form.$valid && save(billinfo)">
         <div id="summary" class="red"></div>
         <div class="form-element form-input-full" ng-if='showEl.firstName'>
             <label>First Name <span class="required">*</span></label> 
@@ -388,6 +388,6 @@
                     title="Please, enter valid Shipping e-mail"
                     required
                     ng-model='billinfo.email'/></div>
-        <input ng-click="" tabindex="9" class="form-button" type='submit' id="button-submit" value="" readonly/>
+        <input ng-click="" tabindex="9" class="form-button" type='submit' id="button-submit" value="submit" readonly/>
         <div class="button-processing" id="button-processing" style="display:none;"><img src="img/loading.gif" /><br />Processing...</div>
 </form>
