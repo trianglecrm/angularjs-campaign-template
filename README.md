@@ -251,15 +251,26 @@ Where infoCtrl is the controller for a page with a billing form and index.php is
 
 Where CcCtrl is the controller for a page with the Credit Card form and order.php is the main content to be displayed
 
-In case that you need a new page, just create the content html page, a new *.when* rule on the js/App/Config/Config.js and set it like a downsell or upsell on the config.ini
+**In case that you need a new page** just create the content html page, a new *.when* rule on the js/App/Config/Config.js and set it like a downsell or upsell on the config.ini
 
 
 ##Additional Notes
 
 When you are going to publish your site, please be sure to **Not Publish** the following items:
 
+- Folder node_modules this is only required by gulp during development
+- Folder Tests not needed for production
 - gulpfile.js only required by Gulp during development
+- Folder Docs not necessary for production
 
 Also please not forget to:
 
 - Change the JS file to app.min.js for production
+
+
+
+
+
+
+
+
