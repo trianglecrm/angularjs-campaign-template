@@ -3,7 +3,7 @@ The purpose of this template is to allow our customers who have servers running 
 
 ##Getting started
 
-- In case that you want to use Gulp and separated JS files(recommended):
+- In case that you want to use Gulp and separated angular JS files /JS/App(recommended):
    - Install Node.js on your computer.
    - Install Gulp using *npm install gulp -g*.
    - Check and install any missing dependencies.
@@ -14,7 +14,7 @@ The purpose of this template is to allow our customers who have servers running 
 
 The config.ini file is located under TriangleCRM folder, and it is in charged of handle all the information related with the costumer, you should updated this file with all your information.
 
-Also there are sections called *billingFormRequired* and *ccFormRequired* which are in charge of tell to the SKD which fields should be shown. 
+Also there are sections called *billingFormRequired* and *ccFormRequired* which are in charge of set in the template which fields should be shown. 
 
 
 ##Config example
@@ -155,3 +155,111 @@ $required = $controller->GetModel('billingFormRequired');
 </div>
 add your custom html code...
 ```
+
+- Add custom html without removing or editing the billing form include
+```
+...add your custom html code
+<div class="" ng-include="templates.templateBill">
+    NOT EDIT
+</div>
+add your custom html code...
+```
+
+##Full example of implementation
+
+- Download the Repo
+- Change the User settings on the config.ini
+
+```
+[Settings]
+USERNAME = 'Triangle'
+PASSWORD = '4rYY9!vf'
+DOMAIN = 'Triangle'
+SITE = ''
+WSDL = '/api/2.0/billing_ws.asmx?wsdl'
+
+```
+
+- Change the required elements by from on the config.ini
+
+  * Billing form required elements
+  * Credit Card form required elements
+
+```
+[billingFormRequired]
+firstName = true
+lastName = true
+address = true
+address2 = false
+city = true
+state = true
+zip = true
+country = false
+phone = true
+email = true
+```
+
+```
+[ccFormRequired]
+paymentType = true
+creditCard = true
+cvv = true
+exp = true
+```
+
+- Set your custom information for each bootstrap
+
+```
+[indexBootstrap]
+planID = '56'
+trialPackageID = '2'
+paymentType = ''
+chargeForTrial = true
+campaign_id = '117'
+successRedirect = 'order.php'
+downSell = 'step3.php'
+upSell = 'step2-order.php'
+```
+
+- Update the views with your custom html, css(index.css) and JS(scripts.js) code
+
+```
+...add your custom html code
+<div class="" ng-include="templates.templateBill">
+    NOT EDIT
+</div>
+add your custom html code...
+```
+
+- If needed, update the routing on /js/App/Config
+
+```
+.when('/index', {
+                    templateUrl : '/templates/contents/index.php',
+                    controller  : 'InfoCtrl'
+            })
+```
+
+Where infoCtrl is the controller for a page with a billing form and index.php is the main content to be displayed
+
+```
+            .when('/order', {
+                    templateUrl : '/templates/contents/order.php',
+                    controller  : 'CcCtrl'
+            })
+```
+
+Where CcCtrl is the controller for a page with the Credit Card form and order.php is the main content to be displayed
+
+In case that you need a new page, just create the content html page, a new *.when* rule on the js/App/Config/Config.js and set it like a downsell or upsell on the config.ini
+
+
+##Additional Notes
+
+When you are going to publish your site, please be sure to **Not Publish** the following items:
+
+- gulpfile.js only required by Gulp during development
+
+Also please not forget to:
+
+- Change the JS file to app.min.js for production
