@@ -165,6 +165,20 @@ add your custom html code...
 add your custom html code...
 ```
 
+- This is how the layout looks like
+```
+<div class="wrapper">
+            <div class="header" static-include="/templates/headers/header.html">
+                
+            </div>
+            <ng-view class="view-animate"></ng-view>
+            <div class="footer" static-include="/templates/footers/footer.html">
+                
+            </div>
+        </div>
+```
+
+
 ##Full example of implementation
 
 - Download the Repo
@@ -172,9 +186,9 @@ add your custom html code...
 
 ```
 [Settings]
-USERNAME = 'Triangle'
-PASSWORD = '4rYY9!vf'
-DOMAIN = 'Triangle'
+USERNAME = 'your username'
+PASSWORD = 'Your password'
+DOMAIN = 'Your instance'
 SITE = ''
 WSDL = '/api/2.0/billing_ws.asmx?wsdl'
 
@@ -211,15 +225,15 @@ exp = true
 
 ```
 [indexBootstrap]
-planID = '56'
-trialPackageID = '2'
-paymentType = ''
-chargeForTrial = true
-campaign_id = '117'
-successRedirect = 'order.php'
-downSell = 'step3.php'
-upSell = 'step2-order.php'
+planID = '56'  // ID of subscription plan to put customer on. Subscription Plans are configured in CRM and can be used for recurring charges.
+trialPackageID = '2' // Should be ID of trial package in subscription manager.
+chargeForTrial = true // Boolean option to specify whether the customer should be charged for trial price. If set to "true" function will charge customer immediately and place shipment according to subscription settings.Trial prices and products for subscription plans are configured in CRM. Function will not put the customer on subscription plan if "chargeForTrial" option is set to "true" and charge is failed for trial price.
+campaign_id = '117' // Campaign ID for product being sold.
+successRedirect = 'order.php' // In case of success after operation redirect here.
+downSell = 'step3.php' // In case of leaving the page, redirect here.
+upSell = 'step2-order.php' // After success show this other item.
 ```
+
 
 - Update the views with your custom html, css(index.css) and JS(scripts.js) code
 
@@ -266,11 +280,4 @@ When you are going to publish your site, please be sure to **Not Publish** the f
 Also please not forget to:
 
 - Change the JS file to app.min.js for production
-
-
-
-
-
-
-
 
