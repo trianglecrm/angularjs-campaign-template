@@ -14,6 +14,7 @@ $required = $controller->GetModel('billingFormRequired');
     var indexShowEl = <?php echo $required; ?>;
 </script>
 
+<h1>Billing Information</h1>
 <div class="" ng-include="templates.templateBill">
 
 </div>

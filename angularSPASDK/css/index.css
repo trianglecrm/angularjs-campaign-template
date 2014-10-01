@@ -16,10 +16,13 @@ h3 { }
 /*  Global Text Styling:End */
 /*  Global Structure:Begin */
 body { background:#fff; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:21px; color:#000; text-align:center;}
-.safe-purchase-badge {position: fixed; left: 0px; bottom: 0px; width: 145px; height: 100px; background: url('../img/safe-purchase-badge.png') no-repeat; z-index:900; display: none;}
 .wrapper {position:relative; width:1001px; margin:0 auto; text-align:left; }
 
-/*  Index Form:Begin */
+/*  template Form:Begin */
+.templateForm {
+    margin: 0 auto;
+    width: 361px;
+}
 .templateForm .index-form-container {position:absolute; top:240px; right:55px; width:300px; padding:10px;  z-index:999;}
 .templateForm .form-title {margin:10px auto; padding-bottom:10px; border-bottom:1px dotted #959595; }
 .templateForm .form-element { margin-bottom:2px; }
@@ -60,18 +63,8 @@ body { background:#fff; font-family:Arial, Helvetica, sans-serif; font-size:14px
 }
 .templateForm .form-button {
     display: block;
-    padding: 0px!important;
-    float: none!important;
-    width: 300px!important; 
-    height: 72px; 
-    background: url('../img/form-button.png');
-    border: none;
-    margin: 50px auto 0px auto!important;
-
+    margin: 35px auto;
 }
 .templateForm .form-button:hover {
     cursor: pointer;
-    background-position:0 -72px;
 }
-.templateForm .form-button:focus {outline:0;}
-.templateForm .form-button-shadow {width: 300px; height: 45px; background: url('../img/button-shadow.png') top center; }
