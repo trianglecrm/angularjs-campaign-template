@@ -22,9 +22,9 @@ Also there are sections called *billingFormRequired* and *ccFormRequired* which 
 User settings example
 ```
 [Settings]
-USERNAME = 'Triangle'
-PASSWORD = '4rYY9!vf'
-DOMAIN = 'Triangle'
+USERNAME = 'Your username'
+PASSWORD = 'Your password'
+DOMAIN = 'Your instance'
 SITE = ''
 WSDL = '/api/2.0/billing_ws.asmx?wsdl'
 
@@ -280,4 +280,3 @@ When you are going to publish your site, please be sure to **Not Publish** the f
 Also please not forget to:
 
 - Change the JS file to app.min.js for production
-
