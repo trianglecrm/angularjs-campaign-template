@@ -1,18 +1,27 @@
 var internal = 0;
-window.onbeforeunload = function (e) {
-    if(internal != 1){
-        var message = "If you stay on the page you will be redirected to a new product",
-        e = e || window.event;
-        // For IE and Firefox
-        if (e) {
-        e.returnValue = message;
-        }
-        // For Safari
-        setTimeout(function(){
-            window.location.href = '#/'+ downsell+'?downsell=1';
-        },1000);
-        return message;
-    }
-    return ;
-};
 
+  function bunload() {
+
+    if (internal != 1) {
+      window.onbeforeunload = null;
+      internal = 1;
+      $('.CS_black_overlay, .CS_div1').show();
+      $('.CS_div1 a').on('click', function(e) {
+          e.preventDefault();
+          $('.CS_black_overlay, .CS_div1').hide();
+          window.location.href = '/#/'+downsell;
+      });
+      return "We have an awesome offer for you, please check it before you leave!";
+
+    } else {
+      internal = 0;
+    }
+
+  }
+
+  if (internal != 1) {
+    //window.onmouseout = bunload;
+    setTimeout(function(){window.onbeforeunload = bunload;},1000);
+  } else {
+    internal = 0;
+  }

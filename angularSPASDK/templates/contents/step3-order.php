@@ -12,6 +12,7 @@ $required = $controller->GetModel('ccFormRequired');
     var orderSettings = <?php echo $settings; ?>;
     var downsell = orderSettings.Result.downSell.split('.')[0];// SPA redirect without .php or .html
     var orderShowEl = <?php echo $required; ?>;
+    var pageId = 2;
 </script>
 
 <h1>Downsell</h1>
