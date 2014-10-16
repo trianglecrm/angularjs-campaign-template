@@ -1,0 +1,70 @@
+/*  Reset:Begin */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,audio,canvas,details,figcaption,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,summary,time,video{border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;margin:0;padding:0;}body{line-height:1;}article,aside,dialog,figure,footer,header,hgroup,nav,section,blockquote{display:block;}nav ul{list-style:none;}ol{list-style:decimal;}ul{list-style:disc;}ul ul{list-style:circle;}blockquote,q{quotes:none;}blockquote:before,blockquote:after,q:before,q:after{content:none;}ins{text-decoration:underline;}del{text-decoration:line-through;}mark{background:none;}abbr[title],dfn[title]{border-bottom:1px dotted #000;cursor:help;}table{border-collapse:collapse;border-spacing:0;}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0;}input[type=submit],input[type=button],button{margin:0px;padding:0px;}input,select,a img{vertical-align:middle;}a {text-decoration:none;}
+img{border:none;}a{cursor:pointer;}.clear{clear:both;}p{margin-bottom:15px;}ul{list-style-type:none;}
+/*  Reset:End */
+/*  Global Text Styling:Begin */
+h1 { }
+h2 { }
+h3 { }
+.red {color:#bb0056; }
+.error {
+    border: 1px solid #bb0056;
+}
+.green {color:#008000; }
+.highlight {background:#FFFF80; }
+.divider {border-bottom:1px solid #cd8098;  margin: 30px 0px;}
+/*  Global Text Styling:End */
+/*  Global Structure:Begin */
+body { background:#fff; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:21px; color:#000; text-align:center;}
+.wrapper {position:relative; width:1001px; margin:0 auto; text-align:left; }
+
+/*  template Form:Begin */
+.templateForm {
+    margin: 0 auto;
+    width: 361px;
+}
+.templateForm .index-form-container {position:absolute; top:240px; right:55px; width:300px; padding:10px;  z-index:999;}
+.templateForm .form-title {margin:10px auto; padding-bottom:10px; border-bottom:1px dotted #959595; }
+.templateForm .form-element { margin-bottom:2px; }
+.templateForm .form-element label {display:block; float:left; position:relative; top:2px; width:35%!important; text-align:right; margin-right:10px;}
+.templateForm .form-input-full { width:100%!important; clear:both; }
+.templateForm .form-input-full input {padding:2px; width:164px !important; text-align:left; }
+.templateForm .form-input-full select {padding:2px; width:151px important; text-align:left;  }
+.templateForm .form-input-full input.checkbox { }
+.templateForm .form-input-2col {}
+.templateForm .form-input-2col input {float:left; padding:3px; width:25%!important; text-align:left; margin-right:10px; }
+.templateForm .form-input-2col select {float:left; padding:3px; width:80px!important; text-align:left; margin-right:10px; }
+.templateForm .form-input-2col input.checkbox { }
+.templateForm a.security-code {position:relative; top:6px; font-size:11px; color:#000; }
+.templateForm a.security-code:hover {text-decoration:underline; }
+#opt_in_form .form-input-full .ccv {
+  width: 72px !important;
+}
+.templateForm .whatiscvv {
+  background: url("../img/cvv2.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  border: 1px solid black;
+    height: 228px;
+    overflow: hidden;
+    position: absolute;
+    right: 256px;
+    top: 11px;
+    width: 179px;
+    z-index: 9999;
+    display: none;
+}
+.templateForm #CC_CVV {
+    width: 72px !important;
+}
+.templateForm .cvv-help {
+  position: relative;
+  top: 5px;
+  color: #444040; 
+  font-size: 11px;
+}
+.templateForm .form-button {
+    display: block;
+    margin: 35px auto;
+}
+.templateForm .form-button:hover {
+    cursor: pointer;
+}
