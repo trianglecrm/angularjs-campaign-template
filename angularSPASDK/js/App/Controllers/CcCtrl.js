@@ -54,7 +54,7 @@ module.controller( 'CcCtrl' , function($scope,$locale,$window,ServiceHandler,$lo
             else{
                 if(response.data.Info == 'Test charge. ERROR'){
                     var success = $scope.ccinfo.successRedirect;
-                    $window.location.href = "#/"+success.split('.')[0];
+                    $window.location.href = "#/"+success.split('.')[0]+'?successDownSell'+orderSettings.Result.successDownSell;
                 }
                 else{
                     $("#button-processing").hide();
@@ -74,16 +74,20 @@ module.controller( 'CcCtrl' , function($scope,$locale,$window,ServiceHandler,$lo
       };
       $scope.typeChange = function(){
             var type = $scope.ccinfo.paymentType;
-            if(type==1){
-                $('#cc_number').attr('data-ng-pattern','[0-9]{4} *[0-9]{6} *[0-9]{5}');
+            if(type == 1){
+                $('#cc_number').attr('pattern','{15}');
                 $('#cc_number').attr('maxlength','15');
+                $("#cc_number").mask("9999-999999-99999");
+                $('#cc_cvv').attr('pattern','[0-9]{4}');
+                $("#cc_cvv").mask("9999");
                 $('#cc_cvv').attr('maxlength','4');
-                $('#cc_cvv').attr('data-ng-pattern','[0-9]{4}');
             }
             else{
-                $('#cc_number').attr('data-ng-pattern','[0-9]{13,16}');
+                $('#cc_number').attr('pattern','{13,16}');
                 $('#cc_number').attr('maxlength','16');
-                $('#cc_cvv').attr('data-ng-pattern','[0-9]{3}');
+                $("#cc_number").mask("9999-9999-9999-9999");
+                $('#cc_cvv').attr('pattern','[0-9]{3}');
+                $("#cc_cvv").mask("999");
                 $('#cc_cvv').attr('maxlength','3');
             }
       };

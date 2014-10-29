@@ -1,15 +1,6 @@
-<?php
 
-include '../../TriangleCRM/Controller.php';
-
-$controller = new Controller("boostrap");
-
-$settings = $controller->GetModel("indexBootstrap");  
-
-?>
 <script>
-    var indexSettings = <?php echo $settings; ?>;
-    var downsell = indexSettings.Result.downSell.split('.')[0];// SPA redirect without .php or .html
+    var downSell = getUrlVars()['successDownSell'];
     var pageId = 3;
 </script>
 <p>

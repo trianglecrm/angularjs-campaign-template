@@ -4,18 +4,17 @@ $(document).ready(function() {
 
 function getPixel(){
     var params = {},action = 'firepixel';
-    if(getUrlVars()["aff"]){ 
-        params.affiliate = getUrlVars()["aff"]
+    if(getUrlVars()["affiliate"]){ 
+        params.affiliate = getUrlVars()["affiliate"]
     }
     if($.cookie('billingInfo')){
-        params.prospectID = $.cookie('billingInfo');
+        params.prospectID = JSON.parse($.cookie('billingInfo')).prospectID;
     }
-    params.pageTypeID =  1;
+    params.pageTypeID =  pageId;
     jsonObj = JSON.stringify(params);
     $.post( "TriangleCRM/Controller.php", { 
         action : action,
         data : jsonObj }).done(function(response){
-            console.log('server response' + response);
             obj = JSON.parse(response);
             if(obj.State == 'error'){
                 console.log(obj.Info)
