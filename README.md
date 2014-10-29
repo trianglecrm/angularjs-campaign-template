@@ -178,6 +178,24 @@ add your custom html code...
         </div>
 ```
 
+- FireAffiliatePixel code, just be sure to check that the pageId is pointing to the correct page number at the begining of every template page:
+
+```
+<script>
+            var pageId = 1;
+</script>
+```
+
+with this pageId variable the template by itself is going to get the pixel's code based in the pageId, affiliate parameter(passed by url) and prospectId variables later it will add the code to the page.
+
+Here is the page id number corresponding to each page:
+ 1 - Landing
+ 2 - Billing
+ 3 - Upsell
+ 4 - Confirmation
+ 5 - Prelander
+
+
 
 ##Full example of implementation
 
@@ -266,6 +284,20 @@ Where infoCtrl is the controller for a page with a billing form and index.php is
 Where CcCtrl is the controller for a page with the Credit Card form and order.php is the main content to be displayed
 
 **In case that you need a new page** just create the content html page, a new *.when* rule on the js/App/Config/Config.js and set it like a downsell or upsell on the config.ini
+
+
+- In order to insert the fireAffiliatePixel code, just be sure to check for the pageId at the begining of every template page:
+
+```
+<script>
+            var indexSettings = <?php echo $settings; ?>;
+            var downsell = indexSettings.Result.downSell.split('.')[0];// SPA redirect without .php or .html
+            var indexShowEl = <?php echo $required; ?>;
+            var pageId = 1;
+</script>
+```
+
+with this pageId variable the template by itself is going to get the pixel code and add it to the page.
 
 
 ##Additional Notes
